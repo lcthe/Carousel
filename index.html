@@ -4,73 +4,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carousel</title>
-    <style type = "text/css">
+    <title>carousel</title>
+    <style type="text/css">
         .box{
-            width:1000px;
-            height:460px;
+            width: 1000px;
+            height: 460px;
             position:relative;
         }
+        
         .box-img{
             position:absolute;
-            top:0;
+            top: 0;
             left:0;
             opacity:0;
             transition: all 1.5s;
         }
+        
         .box-img:nth-child(1){
             opacity:1;
         }
+
         .box-left{
+            width: 35px;
+            height: 70px;
             position: absolute;
-            width:35px;
-            height:70px;
             background-color: #00000050;
-            color: #ccc;
+            color:#ccc;
             top:195px;
             border-radius: 0 5px 5px 0;
             text-align: center;
             line-height:70px;
-            font-size:27px;
+            font-size: 27px;
         }
         .box-left:hover{
             background-color: #00000050;
-            color:#fff;
-
+            color: #fff;
         }
+
         .box-right{
+            width: 35px;
+            height: 70px;
             position: absolute;
-            width:35px;
-            height:70px;
             background-color: #00000050;
-            color: #ccc;
+            color:#ccc;
             top:195px;
+            right:0;
             border-radius: 5px 0 0 5px;
             text-align: center;
             line-height:70px;
-            font-size:27px;
-            right:0;
+            font-size: 27px;
         }
         .box-right:hover{
             background-color: #00000050;
-            color:#fff;
-
+            color: #fff;
         }
-        .box-circle>ul{
+
+        .box-circle ul{
             padding:0;
-            margin:0;
+            margin: 0;
             list-style:none;
         }
         .box-circle li{
-            width:14px;
-            height:14px;
+            width: 14px;
+            height: 14px;
             border-radius: 100%;
             background-color: #ccc;
             float:left;
-            margin-right:10px;
+            margin-right: 10px;
         }
         .box-circle li:hover{
-            background-color: #fff;  
+            background-color: #fff;
         }
         .box-circle li:nth-child(1){
             background-color: #fff;
@@ -83,15 +86,15 @@
     </style>
 </head>
 <body>
-    <div class = "box">
-        <div class = "box-img"><img src="1.jpg" width="1000" height="460"></div>>
-        <div class = "box-img"><img src="2.jpg" width="1000" height="460"></div>>
-        <div class = "box-img"><img src="3.jpg" width="1000" height="460"></div>>
-        <div class = "box-img"><img src="4.jpg" width="1000" height="460"></div>>
-        <div class = "box-img"><img src="5.jpg" width="1000" height="460"></div>>
-        <div class = "box-left">&lt;</div>
-        <div class = "box-right">&gt;</div>
-        <div class = "box-circle">
+    <div class="box">
+        <div class="box-img"><img src="1.jpg" width="1000px" height="460px"></div>
+        <div class="box-img"><img src="2.jpg" width="1000px" height="460px"></div>
+        <div class="box-img"><img src="3.jpg" width="1000px" height="460px"></div>
+        <div class="box-img"><img src="4.jpg" width="1000px" height="460px"></div>
+        <div class="box-img"><img src="5.jpg" width="1000px" height="460px"></div>
+        <div class="box-left">&lt;</div>
+        <div class="box-right">&gt;</div>
+        <div class="box-circle">
             <ul>
                 <li class="botton"></li>
                 <li class="botton"></li>
@@ -104,76 +107,72 @@
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript">
         $(function(){
-            var index=0;//图片当前索引
+            var index=0;
             Timer();
             function Timer(){
-                 var f=setInterval(function(){
-                     if(index==$(".box-img").length-1){
-                        index=0;
-                        $(".box-img").css("opacity","0");
-                        $(".box-img").eq(index).css("opacity","1");
-                        $(".botton").css("background-color","#ccc");
-                        $(".botton").eq(index).css("background-color","#fff");
-                    }
-                    else{
-                        index++;
-                        $(".box-img").css("opacity","0");
-                        $(".box-img").eq(index).css("opacity","1");
-                        $(".botton").css("background-color","#ccc");
-                        $(".botton").eq(index).css("background-color","#fff");
-                    }
-                 },4000)
-             }
-            $(".box-left").click(function(){
-               //clearInterval(f);
-                if(index==0){
-                    index=$(".box-imag").length-1;
-                    $(".box-img").css("opacity","0");
-                    $(".box-img").eq(index).css("opacity","1");
-                    $(".botton").css("background-color","#ccc");
-                    $(".botton").eq(index).css("background-color","#fff");
-                   // Timer();
-                }
-                else{
-                    index--;
-                    $(".box-img").css("opacity","0");
-                    $(".box-img").eq(index).css("opacity","1");
-                    $(".botton").css("background-color","#ccc");
-                    $(".botton").eq(index).css("background-color","#fff");
-                  // Timer();
+                    var f=setInterval(function(){
+                        if(index==$(".box-img").length-1){
+                            index=0;
+                            $(".box-img").css("opacity","0");
+                            $(".box-img").eq(index).css("opacity","1");
+                            $(".botton").css("background-color","#ccc");
+                            $(".botton").eq(index).css("background-color","#fff");
+                        }else{
+                            index++;
+                            $(".box-img").css("opacity","0");
+                            $(".box-img").eq(index).css("opacity","1");
+                            $(".botton").css("background-color","#ccc");
+                            $(".botton").eq(index).css("background-color","#fff");
+                        }
+                    },4000)
+            
+                    $(".box-left").click(function(){
+                   // clearInterval(f);
+                    if(index==0){
+                            index=$(".box-img").length-1;
+                            $(".box-img").css("opacity","0");
+                            $(".box-img").eq(index).css("opacity","1");
+                            $(".botton").css("background-color","#ccc");
+                            $(".botton").eq(index).css("background-color","#fff");
+                           // Timer();
+                        }else{
+                            index--;
+                            $(".box-img").css("opacity","0");
+                            $(".box-img").eq(index).css("opacity","1");
+                            $(".botton").css("background-color","#ccc");
+                            $(".botton").eq(index).css("background-color","#fff");
+                           // Timer();
+                        } 
+                    })
+                        
+                    $(".box-right").click(function(){
+                       // clearInterval(f);
+                        if(index==$(".box-img").length-1){
+                            index=0;
+                            $(".box-img").css("opacity","0");
+                            $(".box-img").eq(index).css("opacity","1");
+                            $(".botton").css("background-color","#ccc");
+                            $(".botton").eq(index).css("background-color","#fff");
+                            //Timer();
+                        }else{
+                            index++;
+                            $(".box-img").css("opacity","0");
+                            $(".box-img").eq(index).css("opacity","1");
+                            $(".botton").css("background-color","#ccc");
+                            $(".botton").eq(index).css("background-color","#fff");
+                            //Timer();
+                        }
+                    })
                 }
                 
+            $(".botton").click(function(){
+                var index_botton=$(this).index();
+                index=index_botton;
+                $(".box-img").css("opacity","0");
+                $(".box-img").eq(index).css("opacity","1");
+                $(".botton").css("background-color","#ccc");
+                $(".botton").eq(index).css("background-color","#fff");
             })
-            $(".box-right").click(function(){
-              //  clearInterval(f);
-                if(index==$(".box-img").length-1){
-                    index=0;
-                    $(".box-img").css("opacity","0");
-                    $(".box-img").eq(index).css("opacity","1");
-                    $(".botton").css("background-color","#ccc");
-                    $(".botton").eq(index).css("background-color","#fff");
-                  //  Timer();
-                }
-                else{
-                    index++;
-                    $(".box-img").css("opacity","0");
-                    $(".box-img").eq(index).css("opacity","1");
-                    $(".botton").css("background-color","#ccc");
-                    $(".botton").eq(index).css("background-color","#fff");
-                   // Timer();
-                } 
-            })
-                $(".botton").click(function(){
-                    //clearInterval(f);
-                    var index_botton=$(this).index();
-                    index=index_botton;
-                    $(".box-img").css("opacity","0");
-                    $(".box-img").eq(index).css("opacity","1");
-                    $(".botton").css("background-color","#ccc");
-                    $(".botton").eq(index).css("background-color","#fff");
-                   // Timer();
-                })
-
         })
     </script>
 </body>
